@@ -124,12 +124,12 @@ body {
 }
 
 ::selection {
-  background: #7453fc;
+  background: #d36323;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #7453fc;
+  background: #d36323;
   color: #fff;
 }
 
@@ -137,7 +137,7 @@ body {
   font-size: 14px;
   color: #fff;
   background-color: transparent;
-  border: 1px solid #7453fc;
+  border: 1px solid #d36323;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -161,15 +161,16 @@ body {
 }
 
 .border-button a:hover {
-  background-color: #7453fc;
+  background-color: #d36323;
   color: #fff;
+  box-shadow:2px 2px 5px #e0b7a8;
 }
 
 .main-button a {
   font-size: 14px;
   color: #fff;
-  background-color: #7453fc;
-  border: 1px solid #7453fc;
+  background-color: #d36323;
+  border: 1px solid #d36323;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -193,8 +194,9 @@ body {
 }
 
 .main-button a:hover {
+  box-shadow:2px 2px 5px #e0b7a8;
   background-color: #fff;
-  color: #7453fc;
+  color: #d36323;
   border: 1px solid #fff;
 }
 
@@ -340,7 +342,7 @@ Header Style
 */
 
 .background-header {
-  background-color: #fff !important;
+  background-color: #222 !important;
   height: 70px!important;
   position: fixed!important;
   top: 0!important;
@@ -371,7 +373,7 @@ Header Style
   min-height: 80px;
   background: transparent;
   display: flex;
-  background-color: #fff;
+  background-color: #222;
   padding: 15px 30px;
   border-radius: 50px;
 }
@@ -391,10 +393,12 @@ Header Style
 
 .header-area .main-nav .logo img {
   width: 223px;
+  position:relative;
+  top:10px;
 }
 
 .background-header .main-nav .logo {
-  margin-top: 8px;
+  margin-top: 18px;
 }
 
 .background-header .main-nav .logo img {
@@ -428,7 +432,7 @@ Header Style
   font-weight: 500;
   font-size: 14px;
   text-transform: capitalize;
-  color: #2a2a2a;
+  color: #ffffff;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -446,13 +450,13 @@ Header Style
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #fff;
-  background-color: #7453fc;
+  color: #ffffff;
+  background-color: #d36323;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #fff;
+  color: #ffffff;
   opacity: 1;
 }
 
@@ -485,7 +489,7 @@ Header Style
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #7453fc;
+  background-color: #d36323;
   display: block;
   position: absolute;
   width: 30px;
@@ -496,7 +500,7 @@ Header Style
 .background-header .main-nav .menu-trigger span,
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
-  background-color: #7453fc;
+  background-color: #d36323;
 }
 
 .header-area .main-nav .menu-trigger span:before,
@@ -505,7 +509,7 @@ Header Style
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #7453fc;
+  background-color: #d36323;
   display: block;
   position: absolute;
   width: 30px;
@@ -516,7 +520,7 @@ Header Style
 
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
-  background-color: #7453fc;
+  background-color: #d36323;
 }
 
 .header-area .main-nav .menu-trigger span:before,
@@ -557,11 +561,11 @@ Header Style
   -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
   -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
   transform: translateY(6px) translateX(1px) rotate(45deg);
-  background-color: #7453fc;
+  background-color: #d36323;
 }
 
 .background-header .main-nav .menu-trigger.active span:before {
-  background-color: #7453fc;
+  background-color: #d36323;
 }
 
 .header-area .main-nav .menu-trigger.active span:after {
@@ -569,11 +573,11 @@ Header Style
   -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   transform: translateY(-6px) translateX(1px) rotate(-45deg);
-  background-color: #7453fc;
+  background-color: #d36323;
 }
 
 .background-header .main-nav .menu-trigger.active span:after {
-  background-color: #7453fc;
+  background-color: #d36323;
 }
 
 .header-area.header-sticky {
@@ -581,7 +585,7 @@ Header Style
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #fff;
+  color: #ffffff;
 }
 
 @media (max-width: 1200px) {
@@ -624,14 +628,15 @@ Header Style
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #7453fc!important;
+    color: #d36323!important;
     opacity: 1;
+    animation:brdr 0.2s linear;
   }
   .header-area.header-sticky .nav li.search-icon a {
     width: 100%;
   }
   .header-area {
-    background-color: #f7f7f7;
+    background-color: #222;
     padding: 0px 15px;
     height: 100px;
     box-shadow: none;
@@ -671,8 +676,8 @@ Header Style
   }
   .header-area .main-nav .nav li {
     width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: rgb(0, 0, 0);
+    border-bottom: 1px solid #000000;
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
@@ -681,13 +686,15 @@ Header Style
     line-height: 50px !important;
     padding: 0px !important;
     border: none !important;
-    background: #fff !important;
+    background: #090909 !important;
     color: #1e1e1e !important;
   }
   .header-area .main-nav .nav li a:hover {
     background: #fff !important;
-    color: #7453fc!important;
+    color: #d36323!important;
+    animation:brdr 0.2s linear;
   }
+  
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     position: relative;
     visibility: inherit;
@@ -706,6 +713,7 @@ Header Style
   }
   .header-area .main-nav .nav li.submenu ul li a:hover:before {
     width: 0px;
+    animation:brdr 0.2s linear;
   }
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     height: auto;
@@ -728,12 +736,12 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
+  background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)) ,url(../myassets/interstellar.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-top: 290px;
-  padding-bottom: 240px;
+  padding-top: 200px;
+  padding-bottom: 100px;
   background-color: #2a2a2a;
 }
 
@@ -745,11 +753,69 @@ Banner Style
 }
 
 .main-banner h2 {
-  color: #fff;
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 66px;
+  
+
+  color:none;
+  font-size: 70px;
   text-transform: uppercase;
+  
+  font-weight: lighter;
+  letter-spacing: 5px;
+  font-family: "innoverse-24\\assets\\myassets\\Steelar-j9Vnj.otf";
+}
+
+#i{
+  color:none;
+  animation:colorchange 0.5s linear forwards;
+}
+h2 span{
+  color:black;
+}
+#n{
+  animation:colorchange 0.3s 0.5s linear forwards;
+}
+#n2{
+  animation:colorchange 0.3s 0.7s linear forwards;
+}
+#o{
+  animation:colorchange 0.3s 1s linear forwards;
+}
+#v{
+  animation:colorchange 0.3s 1.3s linear forwards;
+}
+#e{
+  animation:colorchange 0.3s 1.5s linear forwards;
+}
+#r{
+  animation:colorchange 0.3s 1.7s linear forwards;
+}
+#s{
+  animation:colorchange 0.3s 1.9s linear forwards;
+}
+#e2{
+  animation:colorchange 0.3s 2.1s linear forwards;
+}
+@keyframes colorchange{
+  10%{
+    color:rgba(30, 30, 30,0.1);
+  }
+  20%{
+    color:rgba(40, 43, 47,0.3)
+  }
+  40%{
+    color:rgba(93, 96, 101,0.4)
+  }
+  60%{
+    color:rgba(154, 158, 164,0.6)
+  }
+  80%{
+    color:rgba(175, 175, 175,0.8)
+  }
+  100%{
+    color:rgb(255, 255, 255);
+    text-shadow: 2px 2px 2px #e0b7a8;
+    
+  }
 }
 
 .main-banner p {
@@ -793,7 +859,7 @@ Banner Style
   line-height: 46px;
   font-size: 24px;
   display: inline-block;
-  color: #7453fc;
+  color: #d36323;
   background-color: #fff;
   border-radius: 50%;
   opacity: 1;
@@ -804,7 +870,38 @@ Banner Style
 .main-banner .owl-nav .owl-next span:hover {
   opacity: 1;
 }
+.owl-carousel .item{
+  border-radius:10%;
+  box-shadow: 1px 1px 2px whitesmoke,
+  -1px 1px 2px #e0b7a8,
+  -1px -1px 2px #d36323;
+  
+  animation:r 1s infinite linear;
 
+}
+
+@keyframes r{
+  0%{
+    border-right:1px solid white;
+  }
+  25%{
+    border-top:1px solid white;
+  }
+  50%{
+    border-left:1px solid white;
+  }
+  75%{
+    border-bottom:1px solid white;
+  }
+  100%{
+    border-right:1px solid white;
+  }
+}
+.owl-carousel .item img{
+  position:relative;
+  border-radius:10%;
+  
+}
 
 /* 
 ---------------------------------------------
