@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+  margin:0;
+  padding:0;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+canvas {
+  display: block;
+  
+}
+#main{
+  position:absolute;
+  top:0;
+  width:100vw;
+  height:100vh;
+   background: rgba(250, 250, 250,0.3);
+}
+
+.TextGlitch {
+	--TextGlitch-blendSize: .08em;
+	--TextGlitch-blendColorA: #77f8;
+	--TextGlitch-blendColorB: #ff68;
+	
+	
+	color: #fff;
+	line-height: 1em;
+	letter-spacing: -.1ch;
+	font-size: 8vw;
+	font-family: "Fira Code", monospace;
+  position:relative;
+  top:-60vh;
+  left:30vw;
+  z-index:100;
+  text-shadow:2px 2px 5px white;
+}
+
+.TextGlitch::after {
+	display: none;
+    content: "";
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    width: .7ch;
+    height: 1em;
+    margin-left: .35ch;
+    border-radius: 2px;
+    animation: cursorAnim 1s ease infinite;
+}
+@keyframes cursorAnim {
+	0% { opacity: .5; }
+	45% { opacity: .5; }
+	55% { opacity: 0; }
+	100% { opacity: 0; }
+}
+
+.TextGlitch-clip {
+	position: relative;
+	display: flex;
+	align-items: baseline;
+}
+.TextGlitch-clip + .TextGlitch-clip {
+	position: absolute;
+	top: 0;
+}
+.TextGlitch:not( .TextGlitch-blended ) .TextGlitch-clip + .TextGlitch-clip {
+	display: none;
+}
+
+.TextGlitch-word {
+	margin: 0;
+	white-space: nowrap;
+}
+
+.TextGlitch-blend {
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	transition: .1s;
+	transition-property: opacity;
+}
+.TextGlitch-blendA {
+	color: var( --TextGlitch-blendColorA );
+	margin: calc( var( --TextGlitch-blendSize ) * -1 ) 0 0 var( --TextGlitch-blendSize );
+	mix-blend-mode: darken;
+}
+.TextGlitch-blendB {
+	color: var( --TextGlitch-blendColorB );
+	margin: var( --TextGlitch-blendSize ) 0 0 calc( var( --TextGlitch-blendSize ) * -1 );
+	mix-blend-mode: color-burn;
+}
+.TextGlitch-blended .TextGlitch-blend {
+	opacity: .4;
+}
+
+    </style>
+</head>
+<body>
+    
+<canvas id="canvas" width="100vw" height="100vh">
+    
+
+</canvas>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+
+<div class="TextGlitch" id="title">
+	<div class="TextGlitch-clip">
+		<div class="TextGlitch-word"></div>
+		<div class="TextGlitch-word TextGlitch-blend TextGlitch-blendA"></div>
+		<div class="TextGlitch-word TextGlitch-blend TextGlitch-blendB"></div>
+	</div>
+	<div class="TextGlitch-clip">
+		<div class="TextGlitch-word"></div>
+		<div class="TextGlitch-word TextGlitch-blend TextGlitch-blendA"></div>
+		<div class="TextGlitch-word TextGlitch-blend TextGlitch-blendB"></div>
+	</div>
+	<div class="TextGlitch-clip">
+		<div class="TextGlitch-word"></div>
+		<div class="TextGlitch-word TextGlitch-blend TextGlitch-blendA"></div>
+		<div class="TextGlitch-word TextGlitch-blend TextGlitch-blendB"></div>
+	</div>
+</div>
+<div id="main"></div>
+
+<script>
+    
+(function (window) {
+
+'use strict';
+
+let _dpr, _canvas, _context;
+let _effect, _textManager;
+
+document.addEventListener('DOMContentLoaded', initialize);
+
+class Filter {
+
+  drawTile(context, width, height) {
+
+    let cloneCanavs = document.createElement('canvas');
+    let cloneContext = cloneCanavs.getContext('2d');
+    cloneCanavs.width = width;
+    cloneCanavs.height = height;
+
+    const imageData = context.getImageData(0, 0, width, height);
+    cloneContext.putImageData(imageData, 0, 0);
+
+    const tileWidth = Math.ceil(width / 3);
+    const ratio = tileWidth / width;
+    const tileHeight = Math.ceil(height * ratio);
+
+    for (let i = 0; i < 3; i++) {
+      for (let l = 0; l < 3; l++) {
+
+        const x = tileWidth * i;
+        const y = tileHeight * l;
+        context.drawImage(cloneCanavs, 0, 0, width, height, x, y, tileWidth, tileHeight);
+
+      }
+
+    }
+
+  }
+
+  grayScale(context, width, height) {
+
+    let imageData = context.getImageData(0, 0, width, height);
+    let data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+
+      const color = (data[i] + data[i + 1] + data[i + 2]) / 3;
+      data[i] = data[i + 1] = data[i + 2] = color;
+
+    }
+
+    context.putImageData(imageData, 0, 0);
+
+  }
+
+  extendColor(context, width, height) {
+
+    const data = context.getImageData(0, 0, width, height).data;
+    const extendLine = Math.round(Math.random() * height);
+    const startIndex = 4 * width * extendLine;
+
+    for (let i = 0; i < width; i++) {
+
+      const index = startIndex + i * 4;
+
+      let r = data[index];
+      let g = data[index + 1];
+      let b = data[index + 2];
+      let a = data[index + 3];
+      if (a == 0) r = g = b = 255;
+
+      context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+      context.fillRect(i, 0, 1, height);
+
+    }
+
+  }
+
+  glitchSlip(context, width, height, waveDistance) {
+
+    const startHeight = height * Math.random();
+    const endHeight = startHeight + 30 + Math.random() * 40;
+    for (let h = startHeight; h < endHeight; h++) {
+
+      if (Math.random() < .1) h++;
+      let imageData = context.getImageData(0, h, width, 1);
+      context.putImageData(imageData, Math.random() * waveDistance - waveDistance * .5, h);
+
+    }
+
+  }}
+
+
+
+class Effect {
+
+  constructor() {
+
+    this.draw = null;
+    this.filter = new Filter();
+
+    this.setProcessing();
+    this.setLife();
+
+  }
+
+  setLife() {
+
+    this.life = getRangeNumber(0, 100);
+    this.dying = getRangeNumber(2, 15);
+
+  }
+
+  setProcessing() {
+
+    const processing = [this.filter.drawTile, this.filter.extendColor, this.filter.grayScale];
+    this.draw = processing[Math.floor(Math.random() * processing.length)];
+
+  }
+
+  counter(context, width, height) {
+
+    this.life--;
+
+    this.filter.glitchSlip(context, width, height, 20);
+
+    if (this.life <= 0) this.draw(context, width, height);
+
+    if (this.life <= -this.dying) {
+
+      this.setProcessing();
+      this.setLife();
+
+    }
+
+  }}
+
+
+
+class Text {
+
+  constructor(x, y, text, color, width, height) {
+
+    this.x = x;
+    this.y = y;
+    this.position = y;
+    this.text = text;
+    this.color = color;
+
+    this.width = width;
+    this.height = height;
+
+    this.life = getRangeNumber(0, 50);
+
+  }
+
+  update(y) {
+
+    this.life--;
+
+    this.y = this.position + y;
+
+    if (this.life <= 0) {
+      this.y += getRangeNumber(-10, 10);
+
+    }
+
+    if (this.life <= -10) {
+
+      this.life = getRangeNumber(0, 50);
+
+    }
+
+  }
+
+  draw(context) {
+
+    context.fillStyle = this.color;
+    context.fillText(this.text, this.x, this.y);
+
+  }}
+
+
+
+class TextManager {
+
+  constructor() {
+
+    this.y = 0;
+    this.height = 0;
+    this.margin = 5;
+    this.objectList = [];
+    this.colorList = ['green', 'red', 'white', 'green', '#007fff', '#00ffff'];
+
+  }
+
+  addText(context, text, fontsize) {
+
+    context.font = (5+fontsize) + 'px "Press Start 2P", Fira Code';
+    context.textBaseline = 'top';
+
+    const color = this.colorList[Math.floor(Math.random() * this.colorList.length)];
+    const textWidth = context.measureText(text).width;
+    const textHeight = this.getOffsetHeight(text, context.font);
+
+    const y = this.height + textHeight + this.margin;
+    this.height = y;
+
+    const object = new Text(0, y, text, color, textWidth, textHeight);
+    this.objectList.push(object);
+
+  }
+
+  getOffsetHeight(text, font) {
+
+    let span = document.createElement('span');
+    span.appendChild(document.createTextNode(text));
+    let parent = document.createElement('p');
+    parent.id = 'textMetrics';
+    parent.appendChild(span);
+    document.body.insertBefore(parent, document.body.firstChild);
+
+    span.style.cssText = 'font: ' + font + '; white-space: nowrap; display: inline;';
+    let height = span.offsetHeight;
+    parent.parentNode.removeChild(parent);
+    return height;
+
+  }
+
+  update(context, height) {
+
+    this.y -= 5;
+
+    const length = this.objectList.length;
+    for (let i = 0; i < length; i++) {
+
+      let object = this.objectList[i];
+      object.update(this.y);
+
+    }
+
+    if (this.y <= -this.height) this.y = height;
+
+    return this;
+
+  }
+
+  draw(context) {
+
+    for (let object of this.objectList) {
+
+      object.draw(context);
+
+    }
+
+  }}
+
+
+
+function initialize() {
+
+  _dpr = window.devicePixelRatio || 1;
+  _canvas = document.getElementById('canvas');
+  _context = _canvas.getContext('2d');
+
+  _effect = new Effect();
+
+  loadCode(function (data) {
+
+    window.addEventListener('resize', onResize, false);
+
+    setCanvasSize();
+    setup(data);
+    window.requestAnimationFrame(render);
+
+  });
+
+}
+
+function setCanvasSize() {
+
+  _canvas.width = window.innerWidth;
+  _canvas.height = window.innerHeight;
+
+}
+
+function loadCode(callback) {
+
+  let myXml = new XMLHttpRequest();
+
+  myXml.onload = callback;
+  myXml.open('GET', 'https://code.jquery.com/jquery-3.4.1.js', true);
+  myXml.send(null);
+
+}
+
+function onResize() {
+
+  setCanvasSize();
+  setup();
+
+}
+
+function setup(data) {
+
+  let fontsize = window.innerWidth * .01;
+  let response = data.target.response;
+  let textList = response.split(/\n/);
+
+  _textManager = new TextManager();
+
+  for (let i = 0; i < textList.length; i++) {
+
+    let text = textList[i];
+    _textManager.addText(_context, text, fontsize);
+
+  }
+
+}
+
+function render(timestamp) {
+
+  let width = _canvas.width;
+  let height = _canvas.height;
+
+  _context.clearRect(0, 0, width, height);
+
+  _context.fillStyle = '#000';
+  _context.fillRect(0, 0, width, height);
+
+  _textManager.update(_context, height).draw(_context);
+
+  _effect.counter(_context, width, height);
+
+  window.requestAnimationFrame(render);
+
+}
+
+function getRangeNumber(min, max) {
+
+  return Math.random() * (max - min) + min;
+
+}
+
+
+})(window);
+
+class TextGlitch {
+  constructor( root ) {
+      this._root = root;
+      this._elClips = root.querySelectorAll( ".TextGlitch-clip" );
+      this._elWords = root.querySelectorAll( ".TextGlitch-word" );
+      this._frame = this._frame.bind( this );
+      this._unglitch = this._unglitch.bind( this );
+      this._frameId = null;
+      this._text = "";
+      this._textAlt = [];
+      Object.seal( this );
+
+      this.setTexts( [
+          "Astro {Code}",
+          "ASTROCODE?",
+          "µ37(0 [R132q",
+          "µ31)* {&13Nb",
+          "#+:|* {&><@$?",
+    "Astro {CODE}",
+      ] );
+      
+      // this.setTexts( [
+      // 	"hello world !",
+      // 	"HELLO WORLD ?",
+      // 	"µ3770 3027q ?",
+      // 	"µ311p MQ51b ?",
+      // ] );
+  }
+
+  on() {
+      if ( !this._frameId ) {
+          this._frame();
+      }
+  }
+  off() {
+      clearTimeout( this._frameId );
+      this._frameId = null;
+      this._unglitch();
+  }
+  setTexts( [ text, ...alt ] ) {
+      this._text = text;
+      this._textAlt = alt;
+  }
+
+  // private:
+  // .....................................................................
+  _frame() {
+      this._glitch();
+      setTimeout( this._unglitch, 50 + Math.random() * 200 );
+      this._frameId = setTimeout( this._frame, 250 + Math.random() * 500 );
+  }
+  _glitch() {
+      this._addClipCSS();
+      this._textContent( this._randText() );
+      this._root.classList.add( "TextGlitch-blended" );
+  }
+  _unglitch() {
+      this._removeClipCSS();
+      this._textContent( this._text );
+      this._root.classList.remove( "TextGlitch-blended" );
+  }
+  _textContent( txt ) {
+      this._elWords.forEach( el => el.textContent = txt );
+  }
+
+  // CSS clip-path, to cut the letters like an overflow:hidden
+  // .....................................................................
+  _addClipCSS() {
+      const clips = this._elClips,
+          clip1 = this._randDouble( .1 ),
+          clip2 = this._randDouble( .1 );
+
+      clips[ 0 ].style.transform = `translate(${ this._randDouble( .3 ) }em, .02em)`;
+      clips[ 2 ].style.transform = `translate(${ this._randDouble( .3 ) }em, -.02em)`;
+      clips[ 0 ].style.clipPath = `inset( 0 0 ${ .6 + clip1 }em 0 )`;
+      clips[ 1 ].style.clipPath = `inset( ${ .4 - clip1 }em 0 ${ .3 - clip2 }em 0 )`;
+      clips[ 2 ].style.clipPath = `inset( ${ .7 + clip2 }em 0 0 0 )`;
+  }
+  _removeClipCSS() {
+      this._elClips.forEach( el => {
+          el.style.clipPath =
+          el.style.transform = "";
+      } );
+  }
+
+  // Switch some chars randomly
+  // .....................................................................
+  _randText() {
+      const txt = Array.from( this._text );
+
+      for ( let i = 0; i < 12; ++i ) {
+          const ind = this._randInt( this._text.length );
+
+          txt[ ind ] = this._textAlt[ this._randInt( this._textAlt.length ) ][ ind ];
+      }
+      return txt.join( "" );
+  }
+
+  // rand utils
+  // .....................................................................
+  _randDouble( d ) {
+      return Math.random() * d - d / 2;
+  }
+  _randInt( n ) {
+      return Math.random() * n | 0;
+  }
+}
+
+const elTitle = document.querySelector( "#title" );
+const glitch = new TextGlitch( elTitle );
+
+glitch.on();
+
+</script>
+</body>
+</html>
