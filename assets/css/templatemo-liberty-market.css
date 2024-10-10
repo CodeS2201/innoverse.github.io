@@ -872,30 +872,32 @@ h2 span{
 }
 .owl-carousel .item{
   border-radius:10%;
+  box-sizing: border-box;
   box-shadow: 1px 1px 2px whitesmoke,
   -1px 1px 2px #e0b7a8,
   -1px -1px 2px #d36323;
   
   animation:r 1s infinite linear;
-
+  border:1px solid transparent;
+  transition: border 0.5s linear;
 }
 
 @keyframes r{
-  0%{
-    border-right:1px solid white;
+  10%{
+    border-left:1px solid white;
   }
   25%{
     border-top:1px solid white;
   }
   50%{
-    border-left:1px solid white;
+    border-right:1px solid white;
   }
   75%{
     border-bottom:1px solid white;
   }
-  100%{
-    border-right:1px solid white;
-  }
+}
+.owl-carousel{
+  box-sizing: border-box;
 }
 .owl-carousel .item img{
   position:relative;
