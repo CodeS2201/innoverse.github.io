@@ -928,7 +928,7 @@ Categories & Collections Style
   padding: 120px 0px 150px 0px;
   position: relative;
 }
-.section-heading h2{
+.section-heading #juf{
   font-size:5em;
   font-family: "innoverse-24\\assets\\myassets]\Steelar-j9Vnj.otf";
   position:relative;
@@ -1075,7 +1075,7 @@ letter-spacing:15px;
   }
   
 
-.section-heading h2{
+.section-heading #juf{
   font-size:3em;
 }
 }
@@ -1098,7 +1098,7 @@ letter-spacing:15px;
     left:28%;
   }
 
-.section-heading h2{
+.section-heading #juf{
   font-size:3em;
 }
 
@@ -1122,7 +1122,7 @@ letter-spacing:15px;
     left:25%;
   }
 
-.section-heading h2{
+.section-heading #juf{
   font-size:3em;
 }
 
