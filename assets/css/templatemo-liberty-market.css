@@ -743,6 +743,7 @@ Banner Style
   padding-top: 200px;
   padding-bottom: 100px;
   background-color: #2a2a2a;
+  z-index:1000;
 }
 
 .main-banner h6 {
@@ -912,14 +913,499 @@ Categories & Collections Style
 */
 
 .categories-collections {
-  background-image: url(../images/dark-bg.jpg);
+  background: #000;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   padding: 120px 0px 150px 0px;
   position: relative;
 }
+.section-heading h2{
+  font-size:5em;
+  font-family: "innoverse-24\\assets\\myassets]\Steelar-j9Vnj.otf";
+  position:relative;
+  top:-100px;
+  letter-spacing:15px;
+  font-weight: lighter;
+  text-shadow:1px 1px 5px #d98d65;
+}
 
+#space, .stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#tf, #es{
+  text-shadow:1px 1px 5px #d98d65;
+}
+body{
+  background:#000;
+}
+.tfcontainer {
+  position: relative;
+  margin: auto;
+  width: 500px;
+  top:-380px;
+  left:-350px;
+  max-height:200vh;
+}
+.tfcontainer2 {
+  position: relative;
+  margin: auto;
+  width: 500px;
+  top:-70vh;
+  left:350px;
+  max-height:200vh;
+}
+#tfa{
+  color:white;
+  font-size:20px;
+  position:relative;
+  
+  background-color:#d36323;
+  border-radius:10%;
+  padding:10px 20px 10px 20px;
+  
+}
+#esaa{
+  color:white;
+  font-size:20px;
+  position:relative;
+  
+  width:80px;
+  height:45px;
+  border-radius:10%;
+  padding:5px 20px 5px 20px;
+
+  background-color:#d36323;
+}
+#tf {
+  color: white;
+  position: relative;
+  
+font-size: 3em;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-weight:lighter;
+letter-spacing:15px;
+
+}
+#es{
+  color: white;
+  position: relative;
+  
+font-size: 3em;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-weight:lighter;
+letter-spacing:15px;
+}
+
+#techfesthead{
+  position:relative;
+  top: -55%;
+  left:12%;
+}
+#esummithead{
+  position:relative;
+  top: -30vh;
+  left:65%;
+}
+@media (max-width: 1300px) {
+  .tfcontainer2{
+    left:300px;
+    
+  }
+  #esummithead{
+    
+    left:63%;
+  }
+  #techfesthead{
+    left:5%;
+  }
+
+ 
+}
+@media (max-width: 1200px) {
+  .tfcontainer2{
+    left:250px;
+
+    
+  }
+  .tfcontainer{
+    left:-330px;
+  }
+  #techfesthead{
+    left:0%;
+  }
+  
+
+}
+
+
+
+@media (max-width: 950px) {
+  .tfcontainer2{
+    z-index:-10000;
+
+  }
+  .tfcontainer{
+    left:0px;
+  }
+ 
+  
+}
+
+
+@media (max-width: 990px) {
+  .tfcontainer2{
+    z-index:-10000;
+  }
+  .tfcontainer{
+    left:0px;
+  }
+  
+
+.section-heading h2{
+  font-size:3em;
+}
+}
+@media (max-width: 860px) {
+  .tfcontainer2{
+    z-index:-10000;
+  }
+  .tfcontainer{
+    left:0px;
+    transform:scale(1.25);
+    
+  }
+  #esummithead{
+    top:-10vh;
+    left:28%;
+    
+  }
+  #techfesthead{
+    top:-65%;
+    left:28%;
+  }
+
+.section-heading h2{
+  font-size:3em;
+}
+
+}
+@media (max-width: 770px) {
+  .tfcontainer2{
+    z-index:-10000;
+  }
+  .tfcontainer{
+    left:0px;
+    transform:scale(1.25);
+    
+  }
+  #esummithead{
+    top:-10vh;
+    left:25%;
+    
+  }
+  #techfesthead{
+    top:-65%;
+    left:25%;
+  }
+
+.section-heading h2{
+  font-size:3em;
+}
+
+}
+
+
+
+
+.tfwrap,
+.tfcircle {
+  -webkit-transition: -webkit-transform 500ms linear;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: -moz-transform 500ms linear;
+  -moz-transform-style: preserve-3d;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+  position: absolute;
+}
+
+.tfcircle {
+  position: absolute;
+  border: 3px solid #aaa;
+  border-radius: 500px;
+  margin: auto;
+  top:50px;
+}
+
+.tfcircle.tfc2,
+.tfcircle.tfcenter {
+  border: 2px solid #e0b7a8;
+  width: 350px;
+  height: 350px;
+  top: 75px;
+  left: 75px;
+}
+
+.tfcircle.tfcenter {
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  top: 235px;
+  left: 235px;
+  box-shadow: 0 0 5px #fff;
+}
+
+.tfwrap-electron {
+  border: 0px solid #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: electron 3s linear infinite;
+  -moz-animation: electron 3s linear infinite;
+}
+
+.tfelectron {
+  width: 12px;
+  height: 12px;
+  background: #aaa;
+  left: 50%;
+  margin-left: -8px;
+  border: none;
+  top: -7px;
+  -webkit-transform-origin: 50% 50%;
+}
+
+.tfc2 .tfwrap-electron {
+  -webkit-animation: electron 2s linear infinite;
+  -moz-animation: electron 2s linear infinite;
+}
+
+.tfc2 .tfelectron {
+  top: -6px;
+}
+
+.tfwrap {
+  border: 0px solid #d36323;
+  -webkit-animation: lateral 15s ease-in-out infinite;
+  -moz-animation: lateral 15s ease-in-out infinite;
+}
+
+.tfwrap.tfr {
+  -webkit-animation: lateralRevert 8s linear infinite;
+  -moz-animation: lateralRevert 8s linear infinite;
+}
+
+.tfvertical {
+  -webkit-animation: vertical 8s linear infinite;
+  -moz-animation: vertical 8s linear infinite;
+}
+
+.tfhorizontal {
+  -webkit-animation: horizontalRevert 6s linear infinite;
+  -moz-animation: horizontalRevert 6s linear infinite;
+}
+
+.tfvertical.tfc2 {
+  -webkit-animation: vertical 4s linear infinite;
+  -moz-animation: vertical 4s linear infinite;
+}
+@font-face {
+  font-family: warpen;
+  src: url(innoverse-24\assets\myassets\Warpen-Font\Warpen.otf);
+}
+
+
+.tfhorizontal.tfc2 {
+  -webkit-animation: horizontalRevert 3s linear infinite;
+  -moz-animation: horizontalRevert 3s linear infinite;
+}
+
+@-webkit-keyframes electron {
+  from {
+      -webkit-transform: rotateZ(0deg);
+  }
+  to {
+      -webkit-transform: rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes horizontal {
+  from {
+      -webkit-transform: rotateY(0deg);
+    
+  }
+  to {
+      -webkit-transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes horizontalRevert {
+  from {
+      -webkit-transform: rotateY(360deg);
+  }
+  to {
+      -webkit-transform: rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes vertical {
+  from {
+      -webkit-transform: rotateX(0deg);
+  }
+  to {
+      -webkit-transform: rotateX(360deg);
+  }
+}
+
+@-webkit-keyframes verticalRevert {
+  from {
+      -webkit-transform: rotateX(360deg);
+  }
+  to {
+      -webkit-transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes lateral {
+  from {
+      -webkit-transform: rotateZ(0deg);
+  }
+  to {
+      -webkit-transform: rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes lateralRevert {
+  from {
+      -webkit-transform: rotateZ(360deg);
+  }
+  to {
+      -webkit-transform: rotateZ(0deg);
+  }
+}
+
+@-moz-keyframes electron {
+  from {
+      -moz-transform: rotateZ(0deg);
+  }
+  to {
+      -moz-transform: rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes horizontal {
+  from {
+      -moz-transform: rotateY(0deg);
+  }
+  to {
+      -moz-transform: rotateY(360deg);
+  }
+}
+
+@-moz-keyframes horizontalRevert {
+  from {
+      -moz-transform: rotateY(360deg);
+  }
+  to {
+      -moz-transform: rotateY(0deg);
+  }
+}
+
+@-moz-keyframes vertical {
+  from {
+      -moz-transform: rotateX(0deg);
+  }
+  to {
+      -moz-transform: rotateX(360deg);
+  }
+}
+
+@-moz-keyframes verticalRevert {
+  from {
+      -moz-transform: rotateX(360deg);
+  }
+  to {
+      -moz-transform: rotateX(0deg);
+  }
+}
+
+@-moz-keyframes lateral {
+  from {
+      -moz-transform: rotateZ(0deg);
+  }
+  to {
+      -moz-transform: rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes lateralRevert {
+  from {
+      -moz-transform: rotateZ(360deg);
+  }
+  to {
+      -moz-transform: rotateZ(0deg);
+  }
+}
+
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 1s;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 2s;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 3s;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  } 
+  85% {
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
 .categories-collections:after {
   background-image: url(/assets/images/category-collection-dec.png);
   width: 300px;
@@ -1097,6 +1583,7 @@ Create NFT Style
   background-size: cover;
   padding: 120px 0px;
   position: relative;
+  top:300px;
 }
 
 .create-nft .section-heading .line-dec {
