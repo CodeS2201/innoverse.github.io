@@ -26,11 +26,16 @@ font & reset css
 --------------------------------------------- 
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900");
+@font-face {
+  font-family: warpen;
+  src: url(../webfonts/Warpen.ttf);
+}
 /* 
 ---------------------------------------------
 reset
 --------------------------------------------- 
 */
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -736,7 +741,7 @@ Banner Style
 */
 
 .main-banner {
-  background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)) ,url(../myassets/interstellar.jpg);
+  background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), url(../myassets/interstellar.jpg); /*linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)) ,*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -757,12 +762,15 @@ Banner Style
   
 
   color:none;
-  font-size: 70px;
+  /* font-size: 70px; */
+  font-size: 55px;
   text-transform: uppercase;
   
   font-weight: lighter;
-  letter-spacing: 5px;
-  font-family: "innoverse-24\\assets\\myassets\\Steelar-j9Vnj.otf";
+  /* letter-spacing: 5px; */
+  letter-spacing: 1px;
+  /* font-family: "innoverse-24\\assets\\myassets\\Steelar-j9Vnj.otf"; */
+  font-family: warpen;
 }
 
 #i{
