@@ -311,7 +311,7 @@ Pre-loader Style
   height: 16px;
   top: 12px;
   left: 15px;
-  background: #7453fc;
+  background: #d36323;
   border-radius: 50%;
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -334,7 +334,7 @@ Pre-loader Style
   width: 16px;
   height: 16px;
   margin-left: 16px;
-  background: #7453fc;
+  background: #d36323;
   border-radius: 50%;
 }
 
@@ -929,13 +929,14 @@ Categories & Collections Style
   position: relative;
 }
 .section-heading #juf{
-  font-size:5em;
-  font-family: "innoverse-24\\assets\\myassets]\Steelar-j9Vnj.otf";
+  font-size:3em;
+  font-family: "";
   position:relative;
   top:-100px;
-  letter-spacing:15px;
+  letter-spacing:1px;
   font-weight: lighter;
   text-shadow:1px 1px 5px #d98d65;
+  font-family: warpen;
 }
 
 #space, .stars {
@@ -945,6 +946,8 @@ Categories & Collections Style
   bottom: 0;
   left: 0;
   right: 0;
+  max-width:100vw;
+  background:#000;
 }
 #tf, #es{
   text-shadow:1px 1px 5px #d98d65;
