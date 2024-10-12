@@ -1812,19 +1812,86 @@ Details Page Style
 --------------------------------------------- 
 */
 
-.item-details-page {
-  background-image: url(../images/dark-bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding: 120px 0px 120px 0px;
-  position: relative;
+
+
+.glitchcontainer {
+  text-align: center;
+  color:white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.item-details-page:after {
-  background-image: url(/assets/images/category-collection-dec.png);
-  width: 300px;
-  height: 282px;
+.glitch {
+  letter-spacing: 0;
+  font-size: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 #00cccb, -0.03em -0.04em 0 #cc00cc,
+    0.025em 0.04em 0 #ff9900; 
+  animation: glitch 725ms infinite;
+  animation: appear 3s linear forwards;
+  transition: ease-out;
+  opacity:0;
+}
+@keyframes appear{
+  0%{
+    opacity:0;
+    font-size:0em;
+  }
+  100%{
+    opacity:1;
+    font-size:8rem;
+    letter-spacing:40px;
+  }
+}
+
+@media (max-width:1000px){
+  @keyframes appear{
+    0%{
+      opacity:0;
+      font-size:0em;
+    }
+    100%{
+      opacity:1;
+      font-size:6rem;
+      letter-spacing:30px;
+    }
+  }
+  
+}
+@media (max-width:800px){
+  @keyframes appear{
+    0%{
+      opacity:0;
+      font-size:0em;
+    }
+    100%{
+      opacity:1;
+      font-size:5rem;
+      letter-spacing:25px;
+    }
+  }
+  
+}
+@media (max-width:600px){
+  @keyframes appear{
+    0%{
+      opacity:0;
+      font-size:0em;
+    }
+    100%{
+      opacity:1;
+      font-size:3.7rem;
+      letter-spacing:25px;
+    }
+  }
+  
+}
+.glitch span {
   position: absolute;
   bottom: 0;
   right: 30px;
