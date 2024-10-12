@@ -2215,7 +2215,7 @@ Details Page Style
 
 .glitchcontainer {
   text-align: center;
-  color: white;
+  color:white;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -2235,7 +2235,6 @@ Details Page Style
   animation: appear 3s linear forwards;
   transition: ease-out;
   opacity:0;
-
 }
 @keyframes appear{
   0%{
