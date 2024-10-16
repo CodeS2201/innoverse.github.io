@@ -51,6 +51,9 @@
     border:1px solid transparent;
     transition: border 0.5s linear;
   }
+  .itemtf .author h6 a{
+    color:#d36323 !important;
+  }
 .outer {
     margin: 0;
     padding: 0;
