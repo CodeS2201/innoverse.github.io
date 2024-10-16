@@ -1,0 +1,186 @@
+/**
+ * tf Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+/*
+ *  tf Carousel - Core
+ */
+.tf-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1; }
+  .tf-carousel .tf-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
+    /* fix firefox animation glitch */ }
+  .tf-carousel .tf-stage:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0; }
+  .tf-carousel .tf-stage-outer {
+    position: relative;
+    overflow: hidden;
+    /* fix for flashing background */
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  .tf-carousel .tf-wrapper,
+  .tf-carousel .tf-item {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0); }
+  .tf-carousel .tf-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; }
+  .tf-carousel .tf-item img {
+    display: block;
+    width: 100%; }
+  .tf-carousel .tf-nav.disabled,
+  .tf-carousel .tf-dots.disabled {
+    display: none; }
+  .tf-carousel .tf-nav .tf-prev,
+  .tf-carousel .tf-nav .tf-next,
+  .tf-carousel .tf-dot {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .tf-carousel .tf-nav button.tf-prev,
+  .tf-carousel .tf-nav button.tf-next,
+  .tf-carousel button.tf-dot {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit; }
+  .tf-carousel.tf-loaded {
+    display: block; }
+  .tf-carousel.tf-loading {
+    opacity: 0;
+    display: block; }
+  .tf-carousel.tf-hidden {
+    opacity: 0; }
+  .tf-carousel.tf-refresh .tf-item {
+    visibility: hidden; }
+  .tf-carousel.tf-drag .tf-item {
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .tf-carousel.tf-grab {
+    cursor: move;
+    cursor: grab; }
+  .tf-carousel.tf-rtl {
+    direction: rtl; }
+  .tf-carousel.tf-rtl .tf-item {
+    float: right; }
+
+/* No Js */
+.no-js .tf-carousel {
+  display: block; }
+
+/*
+ *  tf Carousel - Animate Plugin
+ */
+.tf-carousel .animated {
+  animation-duration: 1000ms;
+  animation-fill-mode: both; }
+
+.tf-carousel .tf-animated-in {
+  z-index: 0; }
+
+.tf-carousel .tf-animated-out {
+  z-index: 1; }
+
+.tf-carousel .fadeOut {
+  animation-name: fadeOut; }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/*
+ * 	tf Carousel - Auto Height Plugin
+ */
+.tf-height {
+  transition: height 500ms ease-in-out; }
+
+/*
+ * 	tf Carousel - Lazy Load Plugin
+ */
+.tf-carousel .tf-item {
+  /**
+			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+			calculation of the height of the tf-item that breaks page layouts
+		 */ }
+  .tf-carousel .tf-item .tf-lazy {
+    opacity: 0;
+    transition: opacity 400ms ease; }
+  .tf-carousel .tf-item .tf-lazy[src^=""], .tf-carousel .tf-item .tf-lazy:not([src]) {
+    max-height: 0; }
+  .tf-carousel .tf-item img.tf-lazy {
+    transform-style: preserve-3d; }
+
+/*
+ * 	tf Carousel - Video Plugin
+ */
+.tf-carousel .tf-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000; }
+
+.tf-carousel .tf-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("tf.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform 100ms ease; }
+
+.tf-carousel .tf-video-play-icon:hover {
+  -ms-transform: scale(1.3, 1.3);
+      transform: scale(1.3, 1.3); }
+
+.tf-carousel .tf-video-playing .tf-video-tn,
+.tf-carousel .tf-video-playing .tf-video-play-icon {
+  display: none; }
+
+.tf-carousel .tf-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease; }
+
+.tf-carousel .tf-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%; }
