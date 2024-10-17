@@ -1,0 +1,28 @@
+#teamhead{
+    position: relative; 
+    bottom: 50px; 
+    font-family: ethnocentric; 
+    font-size: 80px; 
+    line-height: 80px;
+}
+@media (max-width:800px){
+    #teamhead{
+        font-size: 60px; 
+    }
+    #committee{
+        font-size:40px;
+    }
+}
+@media (max-width:560px){
+    #teamhead{
+        font-size: 50px; 
+    }
+    #committee{
+        font-size:30px;
+    }
+}
+
+.teamcontainer{
+    background-image:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.9)),url(../myassets/teampagebackground.jpg);
+    
+}
