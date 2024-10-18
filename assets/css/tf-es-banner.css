@@ -119,6 +119,5 @@
     }
   }
   .esummitbackground{
-    background: linear-gradient(to bottom, #000000, #092446, #44096e, #5b3c72);
-
+    background: linear-gradient(to bottom, #000000, #092446, rgba(68, 9, 110, 0.5), rgba(91, 60, 114, 0.6));    
   }
