@@ -28,18 +28,45 @@
 }
 @media (max-width:800px){
     #teamhead{
-        font-size: 60px; 
+        font-size: 60px !important; 
     }
     #committee{
-        font-size:40px;
+        font-size:40px !important;
     }
 }
 @media (max-width:560px){
     #teamhead{
-        font-size: 50px; 
+        font-size: 50px !important; 
     }
     #committee{
-        font-size:30px;
+        font-size:30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #teamhead {
+        font-size: 45px !important;
+    }
+    #committee {
+        font-size: 40px !important;
+    }
+}
+
+@media (max-width: 390px) {
+    #teamhead {
+        font-size: 40px !important;
+    }
+    #committee {
+        font-size: 35px !important;
+    }
+}
+
+@media (max-width: 345px) {
+    #teamhead {
+        font-size: 35px !important;
+    }
+    #committee {
+        font-size: 30px !important;
     }
 }
 
