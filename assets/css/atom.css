@@ -34,7 +34,7 @@
         padding-left: 40%;
     }
     .categories-collections {
-        height: 220vh;
+        height: 340vh;
     }
     .atom {
         scale: 80%;
@@ -96,46 +96,6 @@
         bottom: 500px;
     }
 }
-
-@media (max-width: 376px) {
-    .atoms-box {
-        margin-top: 0;
-        padding-left: 1%;
-    }
-    .atom {
-        width: 20%;
-        height: 50px;
-        scale: 60%;
-    }
-    .atom.es-container {
-        width: 20%;
-        height: 50px;
-        scale: 60%;
-        position: relative;
-        bottom: 200px;
-    }
-}
-
-
-@media (max-width: 321px) {
-    .atoms-box {
-        padding-left: 0;
-    }
-    .atom {
-        width: 20%;
-        height: 50px;
-        scale: 50%;
-    }
-    .atom.es-container {
-        width: 20%;
-        height: 50px;
-        scale: 50%;
-        position: relative;
-        bottom: 100px;
-    }
-}
-
-
 
 .atom {
     position: relative;
