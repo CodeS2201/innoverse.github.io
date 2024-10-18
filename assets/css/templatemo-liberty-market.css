@@ -629,10 +629,10 @@ Header Style
   color: #ffffff;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .header-area .main-nav .nav li {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .header-area .main-nav:before {
     display: none;
@@ -736,7 +736,7 @@ Header Style
     padding: 0px !important;
     border: none !important;
     background: #090909 !important;
-    color: #1e1e1e !important;
+    color: #ffffff !important;
   }
   .header-area .main-nav .nav li a:hover {
     background: #fff !important;
@@ -2124,7 +2124,7 @@ Details Page Style
 
 .current-bid .item .right-content, .current-bid2 .item .right-content{
   padding: 30px;
-  width: 100%;
+  width: 120%;
 }
 
 .current-bid .item .right-content h4, .current-bid2 .item .right-content h4 {
