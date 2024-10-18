@@ -118,3 +118,7 @@
     box-shadow:none;
     }
   }
+  .esummitbackground{
+    background: linear-gradient(to bottom, #000000, #092446, #44096e, #5b3c72);
+
+  }
