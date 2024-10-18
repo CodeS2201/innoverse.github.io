@@ -1513,7 +1513,7 @@ Page Heading Style
 }
 
 .page-heading {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../myassets/esbg1.png);
+  background: linear-gradient(to bottom,rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url(../myassets/esbg1.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -2470,8 +2470,53 @@ body {
 
 
 .item-details-page {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../myassets/eventsbg3.png);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
 }
+html {
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  
+}
+#starscontainer{
+  animation: zoomstars 30s linear infinite;
+}
+@keyframes zoomstars{
+  0%{scale:1;}
+  30%{scale:2; opacity:0.5;}
+  100%{scale:3; opacity:0.3;}
+  
+}
+#stars, #stars2, #stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.2px;
+  height: 1.2px;
+  opacity:0.7;
+  background: transparent;
+}
+
+#stars {
+  animation: animStar 50s linear infinite;
+}
+
+#stars2 {
+  animation: animStar 100s linear infinite;
+}
+
+#stars3 {
+  animation: animStar 150s linear infinite;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
 
 /* E-Summit ends */
 .tf-image {
@@ -2482,3 +2527,19 @@ body {
   width: 300px;
 }
 
+.left-image img{
+  scale:0.9;
+
+  border-radius:45px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+@media (max-width:1200px){
+  .left-image img{
+    padding-bottom:10px;
+  padding-top:30px;
+  box-shadow:none;
+  }
+}
+.col-lg-5 h1{
+  text-shadow:1px 1px 5px #ccc;
+}

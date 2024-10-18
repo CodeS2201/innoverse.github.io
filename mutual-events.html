@@ -75,19 +75,24 @@
     <div class="container ">
       <div class="row">
         <div class="col-lg-12">
-          <h2 style="font-family: theboldfont; font-size: 90px; position: relative; bottom: 30px;">Mutual Events</em></h2>
+          <h2 style="font-family: theboldfont; font-size: 100px; position: relative; bottom: 30px; text-shadow:1px 1px 10px #ccc;">Mutual Events</em></h2>
         </div>
       </div>
     </div>
   </div>
 
   <div class="item-details-page">
+    <div id="starscontainer">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>View <em>Events</em></h2>
+            <h2 style="font-size: 50px;">View <em>Events</em></h2>
           </div>
         </div>
         <div class="col-lg-7 event-item" id="innovathon">
@@ -124,7 +129,7 @@ work and dedication the students are putting into their prototypes.</p>
           </div>
           <form>
             <label for="quantity-text">Details:</label>
-            <a href="/timeline.html"><input placeholder="Timeline" class="quantity-text" style="cursor: pointer"></a>
+            <a href="timeline.html#innovathon-timeline"><input placeholder="Timeline" class="quantity-text" style="cursor: pointer"></a>
             <a href="assets/myassets/innovathon.pdf" target="_blank" class="details-link">Explore</a>
           </form>
         </div>
@@ -158,7 +163,7 @@ from the experiences and insights of successful leaders.</p>
           </div>
           <form>
             <label for="quantity-text">Details:</label>
-            <a href="/timeline.html"><input placeholder="Timeline" class="quantity-text" style="cursor: pointer"></a>
+            <a href="timeline.html#experttalks-timeline"><input placeholder="Timeline" class="quantity-text" style="cursor: pointer"></a>
             <a href="assets/myassets/expert_talks.pdf" target="_blank" class="details-link">Explore</a>
           </form>
         </div>
@@ -181,6 +186,27 @@ from the experiences and insights of successful leaders.</p>
   <script src="assets/js/misc.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-
+  <script>
+  function generateRandomBoxShadows(n) {
+    let value = `${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px #fff`;
+    for (let i = 1; i < n; i++) {
+      let x = Math.floor(Math.random() * 2000);
+      let y = Math.floor(Math.random() * 2000);
+      value += `, ${x}px ${y}px #fff`;
+    }
+    return value;
+  }
+  
+  // Apply the generated box shadows to each stars layer
+  document.addEventListener("DOMContentLoaded", () => {
+    const starsSmall = document.getElementById('stars');
+    const starsMedium = document.getElementById('stars2');
+    const starsBig = document.getElementById('stars3');
+    
+    starsSmall.style.boxShadow = generateRandomBoxShadows(700);
+    starsMedium.style.boxShadow = generateRandomBoxShadows(200);
+    starsBig.style.boxShadow = generateRandomBoxShadows(100);
+  });
+  </script>
 </body>
 </html>

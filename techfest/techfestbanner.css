@@ -44,15 +44,10 @@
     }
   }
   .eventssection{
-    background: linear-gradient(to right, rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(background.jpg);
+    background: linear-gradient(to bottom, #000000, #051427,#270a48, #530f1e);
       background-size:100vw;
-      animation:zoombg 10s linear infinite forwards;
+      
   }
-  @keyframes zoombg{
-    0%{background-size:100vw 100vw ; }
-    100%{ background-size:200vw 200vh; }
-  }
-
   .itemtf img{
     animation:r 1s infinite linear;
     border:1px solid transparent;
