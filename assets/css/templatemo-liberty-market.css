@@ -2383,6 +2383,18 @@ body {
   }
 }
 
+@media (max-width: 401px) {
+  h2.main-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 341px) {
+  h2.main-title {
+    font-size: 24px;
+  }
+}
+
 @media (max-width: 992px) {
   .main-banner .owl-banner {
     margin-top: 80px;
