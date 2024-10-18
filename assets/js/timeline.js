@@ -36,21 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (hash) {
       const element = document.querySelector(hash);
       if (element) {
-          // Highlight the span
-          element.classList.add('highlight');
-          
           // Highlight the parent div
-          const parentDiv = element.closest('div'); // Change 'div' to the appropriate parent selector if necessary
-          if (parentDiv) {
-              parentDiv.classList.add('highlight-div');
-          }
+          element.classList.add('highlight-div');
           
           // Optionally remove highlights after a delay
           setTimeout(() => {
-              element.classList.remove('highlight');
-              if (parentDiv) {
-                  parentDiv.classList.remove('highlight-div');
-              }
+              element.classList.remove('highlight-div');
           }, 3000); // Highlight for 3 seconds
       }
   }
