@@ -25,13 +25,18 @@ body {
   background: #f58a38;
   padding: 120px;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
+.main-title-container {
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -39,12 +44,31 @@ h1 {
   font-family: ethnocentric;
   position: relative;
   top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 465px) {
+  h1 {
+    right: 80px;
+  }
+}
+
+@media (max-width: 372px) {
+  h1 {
+    right: 120px;
+  }
 }
 
 
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-span{
+.techfest span{
+  padding-top: 100px;
+  margin-top: -100px; 
+}
+
+.esummit span {
   padding-top: 100px;
   margin-top: -100px; 
 }
