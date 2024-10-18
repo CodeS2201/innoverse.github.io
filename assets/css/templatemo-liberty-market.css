@@ -2555,3 +2555,23 @@ html {
 .col-lg-5 h1{
   text-shadow:1px 1px 5px #ccc;
 }
+
+#mutuals-head {
+  font-family: theboldfont;
+  font-size: 100px;
+  position: relative;
+  bottom: 30px;
+  text-shadow:1px 1px 10px #ccc;
+}
+
+@media (max-width: 999px) {
+  #mutuals-head {
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 756px) {
+  #mutuals-head {
+    line-height: 100px;
+  }
+}
